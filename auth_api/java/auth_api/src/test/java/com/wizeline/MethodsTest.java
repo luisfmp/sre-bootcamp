@@ -1,5 +1,8 @@
 package com.wizeline;
 import static com.wizeline.Methods.*;
+
+import java.sql.SQLException;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -17,7 +20,7 @@ public class MethodsTest extends TestCase{
         return new TestSuite( MethodsTest.class );
     }
 
-    public void testGenerateToken(){
+    public void testGenerateToken() throws SQLException{
       assertEquals("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4ifQ.StuYX978pQGnCeeaj2E1yBYwQvZIodyDTCJWXdsxBGI", Methods.generateToken("admin", "secret"));
     }
 
