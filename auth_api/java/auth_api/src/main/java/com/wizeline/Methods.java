@@ -27,7 +27,7 @@ public class Methods {
             if (user.getUsername().equals(username)) {
                 if (DigestUtils.sha512Hex(password + user.getSalt()).equals(user.getPassword())) {
                     payload.put("role", user.getRole());
-                    token = Jwts.builder().setClaims(payload).signWith(key).setHeaderParam("typ", "JWT").compact();
+                    token = Jwts.builder().setHeaderParam("alg", "HS256").setClaims(payload).signWith(key).setHeaderParam("typ", "JWT").compact();
                     break;
                 }
             }
